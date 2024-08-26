@@ -17,16 +17,26 @@ $resultado = $conn->query($select);
     <title>Listar</title>
 </head>
 <body>
-    <table>
+    <a href="index.php">< voltar</a>
+    <br>
+    <br>
+
+    <table border="1">
         <thead>
-            <th>#</th><th>Nome</th><th>Nota</th>
+            <th>Id</th><th>Nome</th><th>Nota</th><th>Ação</th>
         </thead>
         <tbody>
             <?php 
                 while($aluno = $resultado->fetch_object()){
                     echo "<tr>";
                         echo "<td> $aluno->id</td><td> $aluno->nome</td><td> $aluno->nota</td>";
-                    echo "</tr>";
+                    
+                    echo "<td>";
+                        echo "<a href='delete.php?id=$aluno->id'>excluir</a>";
+                    echo "</td>";
+                    
+                    
+                        echo "</tr>";
                 }
             ?>
         </tbody>

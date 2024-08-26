@@ -6,6 +6,9 @@
     <title>Cadastro</title>
 </head>
 <body>
+    <a href="index.php">< voltar</a>
+    <br>
+    
     <form action="create.php" method="get">
         <label for="">Nome do Aluno</label>
         <input type="text" name="nome">
