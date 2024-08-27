@@ -7,9 +7,6 @@
 
     $conn = new mysqli($servidor, $user, $pass, $db);
 
-    if($conn){
-        echo "Conectado com sucesso";
-    }
 
 
 ?>

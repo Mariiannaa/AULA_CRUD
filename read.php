@@ -2,7 +2,6 @@
 
 include "conexao.php";
 
-
 $select = "SELECT * FROM aluno";
 
 $resultado = $conn->query($select);
@@ -27,6 +26,7 @@ $resultado = $conn->query($select);
         </thead>
         <tbody>
             <?php 
+            if($resultado->num_rows > 0){
                 while($aluno = $resultado->fetch_object()){
                     echo "<tr>";
                         echo "<td> $aluno->id</td><td> $aluno->nome</td><td> $aluno->nota</td>";
@@ -35,9 +35,16 @@ $resultado = $conn->query($select);
                         echo "<a href='delete.php?id=$aluno->id'>excluir</a>";
                     echo "</td>";
                     
+                    echo "<td>";
+                        echo "<a href='editar.php?id=$aluno->id'>editar</a>";
+                    echo "</td>";
                     
                         echo "</tr>";
                 }
+            }else{
+                echo "<tr><td>Nenhum dado encontrado</td></tr>";
+            }
+                
             ?>
         </tbody>
     </table>
